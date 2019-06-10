@@ -34,8 +34,20 @@ h3 {
 }
 blockquote {
     border-left: 3px solid #d7a423;
+    border-left: 0  none;
     padding-left: 20px;
     margin-bottom: 40px;
+    position: relative;
+}
+blockquote::after{
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 2px;
+  width: 4px;
+  height: 118px;
+  background-color: #d7a423;
+  border-radius: 10px;
 }
 a {
 	color: #fff;
@@ -44,7 +56,7 @@ a {
 }
 a:hover {
 	color: #d7a423;
-    border-bottom: 1px solid #d7a423;
+  border-bottom: 1px solid #d7a423;
 }
 ::selection { 
 	background: #d7a423; 
@@ -74,10 +86,16 @@ button {
   color: #2b0d26;
   border: 0 none;
   font-family: Karla,sans-serif;
-  font-size: 18px;
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: 700;
   padding:8px 14px;
   border-radius: 4px;
   cursor: pointer;
+}
+button:hover {
+  background-color: #fff;
+  transition: background 0.3s;
 }
 
 /* tooltip */
@@ -91,6 +109,7 @@ button {
 }
 
 .tooltip .tooltiptext {
+  font-family: Karla,sans-serif;
   font-size: 14px;
   visibility: hidden;
   width: 200px;
