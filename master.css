@@ -20,7 +20,7 @@ h1 {
     line-height: 1em;
     font-weight: 700;
     font-size: 90px;
-    margin: 170px 0 20px;
+    margin: 120px 0 20px;
 }
 h2 {
     font-weight: 400;
@@ -45,10 +45,68 @@ a:hover {
 	color: #d7a423;
     border-bottom: 1px solid #d7a423;
 }
+::selection { 
+	background: #d7a423; 
+}
+
+
+
 ul.bullet-proof {
 	list-style-type: none;
 }
 .note {
 	font-style: italic;
 	margin-bottom: 20px;
+}
+
+.note input {
+	background: none transparent;
+	border: 0;
+    font-family: Karla,sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.4em;
+    color: #fff;
+    width: 250px;
+}
+
+/* tooltip */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

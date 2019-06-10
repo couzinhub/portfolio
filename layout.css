@@ -1,5 +1,6 @@
 
 #page {
-    width: 777px;
-    margin: 30px auto;
+    max-width: 777px;
+    margin: 0 auto;
+    padding: 30px; 
 }
