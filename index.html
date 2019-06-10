@@ -1,21 +1,31 @@
 <html>
 <head>
-	<title>Hey there!</title>
-	<link rel="stylesheet" type="text/css" href="master.css">
+	<title>Let's hire this one</title>
+	<link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="master.css"/>
+	<link rel="stylesheet" type="text/css" href="layout.css"/>
+	<script src="scripts-found-on-internet.js"></script>
 </head>
 <body>
-	<h1>Hubert Florin</h1>
-	<h2>Digital Product Designer</h2>
+	<div id="page">
+		<h1>Hubert Florin</h1>
+		<h2>Digital Product Designer</h2>
 
-	<blockquote>
-		<h3>Me, briefly:</h3>
-		<ul>
-			<li>I’m <strong>Canadian</strong>, based in Vancouver, BC.</li>
-			<li>I have been a design lead at <strong>Slack since 2014</strong>.</li>
-			<li>I’ve been a designer since 2003, including <strong>9 years as a product designer</strong>.</li>
-		</ul>
-	</blockquote>
-	<p>I’m in the process of redesigning my <a href="http://cargocollective.com/hubertflorin" target="_blank">old portfolio</a>. Until then, you can find me on <a href="https://www.linkedin.com/in/hubert-florin/" target="_blank">LinkedIn</a>, <a href="https://dribbble.com/hubertflorin" target="_blank">Dribbble</a>, or <a href="https://twitter.com/MySweetHubert" target="_blank">Twitter</a>.</p>
-	<p>couzin.hub@gmail.com</p>
+		<blockquote>
+			<h3>Me, briefly:</h3>
+			<ul class="bullet-proof">
+				<li>I’m <strong>Canadian</strong>, based in Vancouver, BC.</li>
+				<li>I have been a design lead at <strong>Slack since 2014</strong>.</li>
+				<li>I’ve been a designer since 2003, including <strong>9 years as a product designer</strong>.</li>
+			</ul>
+		</blockquote>
+		<p class="note">I’m in the process of redesigning my <a href="http://cargocollective.com/hubertflorin" target="_blank">old portfolio</a>. Until then, you can find me on <a href="https://www.linkedin.com/in/hubert-florin/" target="_blank">LinkedIn</a>, <a href="https://dribbble.com/hubertflorin" target="_blank">Dribbble</a>, or <a href="https://twitter.com/MySweetHubert" target="_blank">Twitter</a>.</p>
+		<p class="note">couzin.hub@gmail.com</p>
+
+		<input type="text" value="couzin.hub@gmail.com" id="myInput">
+		<button onclick="myFunction()" onmouseout="outFunc()"><span class="tooltiptext" id="myTooltip">Copy to clipboard</span>Copy text</button>
+
+	</div>
+
 </body>
 </html>

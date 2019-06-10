@@ -2,3 +2,53 @@
 	margin: 0;
 	padding: 0;
 }
+body {
+	-webkit-font-smoothing: antialiased;
+	background-color: #2b0d26;
+    font-family: Karla,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 1.4em;
+    color: #fff;
+}
+
+/* Typographie */
+
+h1 {
+    color: #d7a423;
+    line-height: 1em;
+    font-weight: 700;
+    font-size: 90px;
+    margin: 170px 0 20px;
+}
+h2 {
+    font-weight: 400;
+    font-size: 36px;
+    margin-bottom: 60px;
+}
+h3 {
+    color: #d7a423;
+    font-weight: 400;
+}
+blockquote {
+    border-left: 3px solid #d7a423;
+    padding-left: 20px;
+    margin-bottom: 40px;
+}
+a {
+	color: #fff;
+	text-decoration: none;
+    border-bottom: 1px solid #fff;
+}
+a:hover {
+	color: #d7a423;
+    border-bottom: 1px solid #d7a423;
+}
+ul.bullet-proof {
+	list-style-type: none;
+}
+.note {
+	font-style: italic;
+	margin-bottom: 20px;
+}
