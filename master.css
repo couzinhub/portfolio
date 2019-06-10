@@ -124,7 +124,13 @@ button:hover {
   left: 50%;
   margin-left: -100px;
   opacity: 0;
-  transition: opacity 0.3s;
+}
+.tooltip .tooltiptext.copied {
+  background-color: green;
+  color:#fff;
+}
+.tooltip .tooltiptext.copied::after{
+  border-color: green transparent transparent transparent;
 }
 
 .tooltip .tooltiptext::after {

@@ -3,7 +3,7 @@ function copyText() {
 	copyText.select();
 	document.execCommand("copy");
 	document.getSelection().removeAllRanges();
-
+	document.getElementById("myTooltip").classList.add('copied');
 	
 	var tooltip = document.getElementById("myTooltip");
 	tooltip.innerHTML = "<strong>Copied:</strong> " + copyText.value;
@@ -11,5 +11,6 @@ function copyText() {
 
 function outFunc() {
 	var tooltip = document.getElementById("myTooltip");
-	tooltip.innerHTML = "Copy to clipboard";
+	tooltip.innerHTML = "You're doing the right thing";
+	document.getElementById("myTooltip").classList.remove('copied');
 }
