@@ -1,17 +1,12 @@
-function copyText(){
-	var text = document.getElementById("userInput");
-	text.select();
-	document.execCommand("copy");
-}
-
-
-function myFunction() {
+function copyText() {
 	var copyText = document.getElementById("myInput");
 	copyText.select();
 	document.execCommand("copy");
+	document.getSelection().removeAllRanges();
+
 	
 	var tooltip = document.getElementById("myTooltip");
-	tooltip.innerHTML = "Copied: " + copyText.value;
+	tooltip.innerHTML = "<strong>Copied:</strong> " + copyText.value;
 }
 
 function outFunc() {

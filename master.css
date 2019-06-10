@@ -9,7 +9,7 @@ body {
     font-weight: 400;
     font-style: normal;
     font-size: 22px;
-    line-height: 1.4em;
+    line-height: 1.5em;
     color: #fff;
 }
 
@@ -28,8 +28,9 @@ h2 {
     margin-bottom: 60px;
 }
 h3 {
+    font-size: 22px;
     color: #d7a423;
-    font-weight: 400;
+    font-weight: 700;
 }
 blockquote {
     border-left: 3px solid #d7a423;
@@ -49,6 +50,7 @@ a:hover {
 	background: #d7a423; 
 }
 
+/* Home */
 
 
 ul.bullet-proof {
@@ -56,19 +58,26 @@ ul.bullet-proof {
 }
 .note {
 	font-style: italic;
-	margin-bottom: 20px;
+	margin: 40px 0 20px;
 }
-
 .note input {
 	background: none transparent;
 	border: 0;
-    font-family: Karla,sans-serif;
-    font-weight: 400;
-    font-style: italic;
-    font-size: 22px;
-    line-height: 1.4em;
-    color: #fff;
-    width: 250px;
+  font-family: Karla,sans-serif;
+  font-size: 22px;
+  color: #fff;
+  width: 250px;
+  outline: 0;
+}
+button {
+  background-color: #d7a423;
+  color: #2b0d26;
+  border: 0 none;
+  font-family: Karla,sans-serif;
+  font-size: 18px;
+  padding:8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 /* tooltip */
@@ -77,20 +86,24 @@ ul.bullet-proof {
   position: relative;
   display: inline-block;
 }
+.tooltip button {
+  margin-right: 10px;
+}
 
 .tooltip .tooltiptext {
+  font-size: 14px;
   visibility: hidden;
-  width: 140px;
-  background-color: #555;
-  color: #fff;
+  width: 200px;
+  background-color: #d7a423;
+  color: #2b0d26;
   text-align: center;
-  border-radius: 6px;
-  padding: 5px;
+  border-radius: 4px;
+  padding: 10px 0;
   position: absolute;
   z-index: 1;
   bottom: 150%;
   left: 50%;
-  margin-left: -75px;
+  margin-left: -100px;
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -101,9 +114,8 @@ ul.bullet-proof {
   top: 100%;
   left: 50%;
   margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
+  border: 5px solid #d7a423;
+  border-color: #d7a423 transparent transparent transparent;
 }
 
 .tooltip:hover .tooltiptext {
