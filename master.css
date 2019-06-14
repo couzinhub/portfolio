@@ -13,81 +13,30 @@ body {
     color: #fff;
 }
 
-/* Typographie */
+/* Misc 
+-------------------- */
 
-h1 {
-    color: #d7a423;
-    line-height: 1em;
-    font-weight: 700;
-    font-size: 90px;
-    margin: 120px 0 20px;
+.spacer {
+  height: 40px;
 }
-h2 {
-    font-weight: 400;
-    font-size: 36px;
-    margin-bottom: 60px;
-}
-h3 {
-    font-size: 22px;
-    color: #d7a423;
-    font-weight: 700;
-}
-blockquote {
-    border-left: 3px solid #d7a423;
-    border-left: 0  none;
-    padding-left: 20px;
-    margin-bottom: 40px;
-    position: relative;
-}
-blockquote::after{
-  content: "";
-  position: absolute;
-  top: 8px;
-  left: 2px;
-  width: 4px;
-  height: 118px;
-  background-color: #d7a423;
-  border-radius: 10px;
-}
-a {
-	color: #fff;
-	text-decoration: none;
-    border-bottom: 1px solid #fff;
-}
-a:hover {
-	color: #d7a423;
-  border-bottom: 1px solid #d7a423;
-}
+
+/* selection */
+
 ::selection { 
-	background: #d7a423; 
+  background: #d7a423; 
+}
+h1::selection {
+  background: #000; 
 }
 
-/* Home */
+/* button */
 
-
-ul.bullet-proof {
-	list-style-type: none;
-}
-.note {
-	font-style: italic;
-	margin: 40px 0 20px;
-}
-.note input {
-	background: none transparent;
-	border: 0;
-  font-family: Karla,sans-serif;
-  font-size: 22px;
-  color: #fff;
-  width: 250px;
-  outline: 0;
-}
 button {
   background-color: #d7a423;
   color: #2b0d26;
   border: 0 none;
   font-family: Karla,sans-serif;
-  font-family: monospace;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   padding:8px 14px;
   border-radius: 4px;
@@ -107,7 +56,6 @@ button:hover {
 .tooltip button {
   margin-right: 10px;
 }
-
 .tooltip .tooltiptext {
   font-family: Karla,sans-serif;
   font-size: 14px;
@@ -133,7 +81,6 @@ button:hover {
 .tooltip .tooltiptext.copied::after{
   border-color: green transparent transparent transparent;
 }
-
 .tooltip .tooltiptext::after {
   content: "";
   position: absolute;
@@ -143,9 +90,68 @@ button:hover {
   border: 5px solid #d7a423;
   border-color: #d7a423 transparent transparent transparent;
 }
-
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.15s;
+}
+
+
+/* Home 
+-----------------------------*/
+
+
+ul.bullet-proof {
+	list-style-type: none;
+}
+.note {
+	font-style: italic;
+	margin: 40px 0 20px;
+}
+p input {
+	background: none transparent;
+	border: 0;
+  font-family: Karla,sans-serif;
+  font-size: 22px;
+  color: #fff;
+  width: 250px;
+  outline: 0;
+}
+
+/* Projects previews */
+
+.project-preview {
+  background-color: #fff;
+  border-radius: 16px;
+  height: 350px;
+  margin: 20px 0 80px;
+  position: relative;
+}
+
+.project-preview h4 {
+  background-color: #8F3181;
+  color: #fff;
+  display: inline-block;
+  border-radius: 8px;
+  padding: 6px 16px;
+  position: absolute;
+  top:40px;
+  left: -16px;
+  transition: all 0.15s;
+}
+.project-preview a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.project-preview a,
+.project-preview a:hover {
+   border: 0;
+}
+.project-preview:hover h4 {
+  left:-12px;
+  background-color: #701762;
+  box-shadow: 0 0 3px #701762;
 }
