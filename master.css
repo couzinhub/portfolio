@@ -116,9 +116,6 @@ h2 {
   margin: 0 0 0 10px;
   transition: fill 0.15s;
 }
-.socials a:hover svg {
-  fill: rgba(255,255,255,1); 
-}
 
 
 ul.bullet-proof {
@@ -170,17 +167,7 @@ p input {
 .project-preview a:hover {
    border: 0;
 }
-.project-preview:hover h4 {
-  left:-12px;
-  background-color: #701762;
-}
-.project-preview.color-2 h4{ background-color: #2A7523;}
-.project-preview.color-3 h4{ background-color: #B02405;}
-.project-preview.color-4 h4{ background-color: #005889;}
 
-.project-preview.color-2:hover h4{ background-color: #105B0A;}
-.project-preview.color-3:hover h4{ background-color: #781601;}
-.project-preview.color-4:hover h4{ background-color: #003E61;}
 
 .exit {
   font-style: italic;
@@ -188,4 +175,28 @@ p input {
   font-size: 16px;
   margin-bottom: 80px;
   color: rgba(255,255,255,0.7);
+}
+
+/* Hover states on non-touch devices 
+--------------------------------------- */
+
+@media (hover: hover) {
+
+  .socials a:hover svg {
+    fill: rgba(255,255,255,1); 
+  }
+
+  .project-preview:hover h4 {
+    left:-12px;
+    background-color: #701762;
+  }
+
+  .project-preview.color-2 h4{ background-color: #2A7523;}
+  .project-preview.color-3 h4{ background-color: #B02405;}
+  .project-preview.color-4 h4{ background-color: #005889;}
+
+  .project-preview.color-2:hover h4{ background-color: #105B0A;}
+  .project-preview.color-3:hover h4{ background-color: #781601;}
+  .project-preview.color-4:hover h4{ background-color: #003E61;}
+
 }
