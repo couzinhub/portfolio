@@ -100,6 +100,33 @@ button:hover {
 /* Home 
 -----------------------------*/
 
+h2 {
+  display: inline-block;
+  margin-right: 10px;
+}
+.socials {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: 40px;
+}
+.socials li {
+  display: inline-block;
+}
+.socials a, .socials a:hover {
+  border: 0;
+}
+.socials svg {
+  height: 25px;
+  fill: rgba(255,255,255,0.4);
+  position: relative;
+  top: 3px;
+  margin: 0 0 0 10px;
+  transition: fill 0.15s;
+}
+.socials a:hover svg {
+  fill: rgba(255,255,255,1); 
+}
+
 
 ul.bullet-proof {
 	list-style-type: none;
@@ -124,7 +151,7 @@ p input {
   background-color: #fff;
   border-radius: 16px;
   height: 350px;
-  margin: 20px 0 80px;
+  margin: 60px 0;
   position: relative;
 }
 
@@ -153,4 +180,19 @@ p input {
 .project-preview:hover h4 {
   left:-12px;
   background-color: #701762;
+}
+.project-preview.color-2 h4{ background-color: #2A7523;}
+.project-preview.color-3 h4{ background-color: #B02405;}
+.project-preview.color-4 h4{ background-color: #005889;}
+
+.project-preview.color-2:hover h4{ background-color: #105B0A;}
+.project-preview.color-3:hover h4{ background-color: #781601;}
+.project-preview.color-4:hover h4{ background-color: #003E61;}
+
+.exit {
+  font-style: italic;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 80px;
+  color: rgba(255,255,255,0.7);
 }
