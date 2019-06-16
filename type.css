@@ -1,5 +1,15 @@
 /* Typographie */
 
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: Karla,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1.45em;
+  color: #fff;
+}
+
 h1 {
     color: #d7a423;
     line-height: 1em;
@@ -15,7 +25,7 @@ h2 {
 h3 {
     font-size: 22px;
     color: #d7a423;
-    font-weight: 400;
+    font-weight: 700;
 }
 h4 {
     font-size: 22px;
@@ -25,17 +35,17 @@ h4 {
 blockquote {
     border-left: 3px solid #d7a423;
     border-left: 0  none;
-    padding-left: 20px;
+    padding-left: 28px;
     margin-bottom: 40px;
     position: relative;
 }
 blockquote::after{
   content: "";
   position: absolute;
-  top: 8px;
+  top: 4px;
   left: 2px;
+  bottom: 4px;
   width: 4px;
-  height: 118px;
   background-color: #d7a423;
   border-radius: 10px;
 }
