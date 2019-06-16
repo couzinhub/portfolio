@@ -61,7 +61,7 @@ button:hover {
   padding: 10px 0;
   position: absolute;
   z-index: 1;
-  bottom: 150%;
+  bottom: 120%;
   left: 50%;
   margin-left: -100px;
   opacity: 0;
@@ -110,7 +110,7 @@ h2 {
 }
 .socials svg {
   height: 25px;
-  fill: rgba(255,255,255,0.4);
+  fill: rgba(255,255,255,0.48);
   position: relative;
   top: 3px;
   margin: 0 0 0 10px;
