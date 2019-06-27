@@ -121,10 +121,6 @@ h2 {
 ul.bullet-proof {
 	list-style-type: none;
 }
-.note {
-	font-style: italic;
-	margin: 40px 0 20px;
-}
 p input {
 	background: none transparent;
 	border: 0;

@@ -31,7 +31,9 @@ h4 {
     font-size: 22px;
     font-weight: 700;
 }
-
+p {
+  margin: 40px 0 20px;
+}
 blockquote {
     border-left: 3px solid #d7a423;
     border-left: 0  none;
