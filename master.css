@@ -19,7 +19,12 @@ body {
   background: #d7a423; 
 }
 h1::selection {
-  background: #000; 
+  color: #000; 
+}
+
+.legals {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
 }
 
 /* button */
