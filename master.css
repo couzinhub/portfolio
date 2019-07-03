@@ -18,8 +18,17 @@ body {
 ::selection { 
   background: #d7a423; 
 }
-h1::selection {
+h1::selection,
+h3::selection {
   color: #000; 
+}
+:focus{
+  outline: 0;
+  border-radius: 2px;
+  box-shadow: 
+    0 0 0 6px rgba(45,158,224,0.3),
+    0 0 0 2px #0576B9;
+  transition: box-shadow 0.08s linear;
 }
 
 /* button */
@@ -107,9 +116,11 @@ h2 {
 }
 .socials a, .socials a:hover {
   border: 0;
+  display: inline-block;
 }
 .socials svg {
   height: 25px;
+  width: 22px;
   fill: rgba(255,255,255,0.48);
   position: relative;
   top: 3px;
@@ -162,15 +173,6 @@ p input {
 .project-preview a,
 .project-preview a:hover {
    border: 0;
-}
-
-
-.exit {
-  font-style: italic;
-  text-align: center;
-  font-size: 16px;
-  margin-bottom: 80px;
-  color: rgba(255,255,255,0.7);
 }
 
 /* Hover states on non-touch devices 
