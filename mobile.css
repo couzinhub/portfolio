@@ -3,7 +3,7 @@
 /* Small Mobiles Devices 
 –––––––––––––––––––––––––––––––––– */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
 
 body {
 	font-size: 17px;
@@ -13,25 +13,27 @@ body {
     padding: 30px;
 }
 h1 {
-    font-size: 64px;
-    margin: 0px 0 12px;
+    font-size: 58px;
+    margin: 0px 0 8px;
 }
 h2 {
     font-size: 24px;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
 	line-height: 1.2;
+	display: inline-block;
+	width: 100%;
 }
 .socials {
-	margin-bottom: 30px;
+	margin-bottom: 24px;
 }
 .socials svg {
 	height: 35px;
-	width: 28px;
+	width: 24px;
 	margin: 0 16px 0 0;
 }
 blockquote {
     padding-left: 0;
-    margin-bottom: 40px;
+    margin-bottom: 34px;
 }
 blockquote::after{
 	width: 6px;
