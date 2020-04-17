@@ -3,7 +3,7 @@
 	padding: 0;
 }
 body {
-  background-color: #3d0434;
+  background-color: #111;
 }
 
 /* Misc 
@@ -16,11 +16,11 @@ body {
 /* selection */
 
 ::selection { 
-  background: #d7a423; 
+  background: blue; 
 }
 h1::selection,
 h3::selection {
-  color: #000; 
+  color: #fff; 
 }
 :focus{
   outline: 0;
@@ -35,10 +35,10 @@ h3::selection {
 
 button {
   background-color: #d7a423;
-  color: #3d0434;
+  color: #000;
   border: 0 none;
-  font-size: 16px;
-  letter-spacing: 0.8;
+  font-size: 18px;
+  letter-spacing: 0;
   font-weight: 700;
   padding:8px 14px;
   border-radius: 6px;
@@ -60,19 +60,19 @@ button:hover {
 }
 .tooltip .tooltiptext {
   font-family: Karla,sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   visibility: hidden;
   width: 200px;
   background-color: #d7a423;
   color: #2b0d26;
   text-align: center;
-  border-radius: 4px;
-  padding: 10px 0;
+  border-radius: 8px;
+  padding: 8px;
   position: absolute;
   z-index: 1;
   bottom: 120%;
   left: 50%;
-  margin-left: -100px;
+  margin-left: -108px;
   opacity: 0;
 }
 .tooltip .tooltiptext.copied {
@@ -134,7 +134,7 @@ p input {
 	background: none transparent;
 	border: 0;
   font-family: Karla,sans-serif;
-  font-size: 22px;
+  font-size: 24px;
   color: #fff;
   width: 250px;
   outline: 0;
