@@ -6,6 +6,12 @@ body {
   background-color: #111;
 }
 
+#page {
+    max-width: 777px;
+    margin: 0 auto;
+    padding: 30px; 
+}
+
 /* Misc 
 -------------------- */
 
@@ -24,10 +30,10 @@ h3::selection {
 }
 :focus{
   outline: 0;
-  border-radius: 2px;
+  border-radius: 6px;
   box-shadow: 
     0 0 0 6px rgba(45,158,224,0.3),
-    0 0 0 2px #0576B9;
+    0 0 0 2px #00C4FB;
   transition: box-shadow 0.08s linear;
 }
 
@@ -109,22 +115,21 @@ h2 {
 .socials {
   display: inline-block;
   list-style: none;
-  margin-bottom: 40px;
+  margin: 0 0 30px -3px;
 }
 .socials li {
   display: inline-block;
+  margin-right: 10px;
 }
 .socials a, .socials a:hover {
   border: 0;
   display: inline-block;
 }
 .socials svg {
-  height: 30px;
-  width: 32px;
+  height: 35px;
+  width: 35px;
   fill: rgba(255,255,255,0.48);
-  position: relative;
-  top: 3px;
-  margin: 0 0 0 10px;
+  margin: 3px;
   transition: fill 0.15s;
 }
 ul.bullet-proof {
@@ -136,7 +141,7 @@ p input {
   font-family: Karla,sans-serif;
   font-size: 24px;
   color: #fff;
-  width: 250px;
+  width: 300px;
   outline: 0;
 }
 

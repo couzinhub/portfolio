@@ -6,7 +6,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="master.css"/>
 	<link rel="stylesheet" type="text/css" href="type.css"/>
-	<link rel="stylesheet" type="text/css" href="layout.css"/>
 	<link rel="stylesheet" type="text/css" href="mobile.css"/>
 	<script src="scripts-found-on-internet.js"></script>
 </head>
@@ -37,15 +36,15 @@
 			</li>
 		</ul>
 
-		<p>I'm a <strong>product designer</strong>, ex-<a href="https://slack.com" target="blank" title="Slack.com">Slacker</a>, living in Vancouver, BC. If you want to see my portfolio, contact me by email:</p>
+		<p>I'm a <strong>product designer</strong>, <a href="https://slack.com" target="blank" title="Slack.com">ex-Slacker</a>, living in Vancouver, BC. If you want to see my portfolio, contact me by email:</p>
 		<p>
 			<span class="tooltip">
-				<button onclick="copyText()" onmouseout="outFunc()">
+				<button title="copy email address" onclick="copyText()" onmouseout="outFunc()">
 					<span class="tooltiptext" id="myTooltip">You're doing the right thing</span>
 					Copy email
 				</button>
 			</span>
-			<input type="text" value="couzin.hub@gmail.com" id="myInput">
+			<input tabindex="-1" type="text" value="couzin.hub@gmail.com" id="myInput">
 		</p>
 
 	</div> <!-- /page -->
