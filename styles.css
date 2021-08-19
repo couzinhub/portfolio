@@ -32,7 +32,7 @@ h1 {
 }
 .content {
   list-style: none;
-  margin: 0 0 38px;
+  margin: 0 0 41px;
   position: relative;
   left: 27px;
 }
@@ -56,12 +56,6 @@ a {
 .socials li {
   display: inline-block;
   margin-right: 10px;
-}
-.socials li a {
-  display: inline-block;
-}
-.socials svg {
-  padding: 3px 0;
 }
 
 #shadow {
@@ -89,17 +83,5 @@ a {
 @media (hover: hover) {
   a:hover {
     color: #12539E;
-  }
-  :focus{
-    outline: 0;
-    padding: 0 4px;
-    position: relative;
-    left: -4px;
-    margin-right: -8px;
-    border-radius: 6px;
-    box-shadow: 
-      0 0 0 6px rgba(45,158,224,0.3),
-      0 0 0 2px #00C4FB;
-    transition: box-shadow 0.08s linear;
   }
 }
