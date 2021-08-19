@@ -24,6 +24,46 @@ body {
   border-radius: 10px;
   position: relative;
 }
+h1 {
+  font-weight: 900;
+  font-size: 38px;
+  line-height: 140%;
+  margin: 0 0 24px;
+}
+.content {
+  list-style: none;
+  margin: 0 0 38px;
+  position: relative;
+  left: 27px;
+}
+.content::after {
+  content: '';
+  width: 5px;
+  border-radius: 4px;
+  position: absolute;
+  top: 2px;
+  bottom: 4px;
+  left: -27px;
+  background-color: #FFD171;
+
+}
+.content span {
+  color: #8f8f8f;
+}
+a {
+  color: #4183D0;
+}
+.socials li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.socials li a {
+  display: inline-block;
+}
+.socials svg {
+  padding: 3px 0;
+}
+
 #shadow {
   display: block;
   width: 600px;
@@ -46,63 +86,20 @@ body {
   opacity: 20%;
 }
 
-/* Typographie */
-
-h1 {
-  font-weight: 900;
-  font-size: 38px;
-  line-height: 140%;
-  margin: 0 0 24px;
-}
-.content {
-  list-style: none;
-  margin: 0 0 41px;
-  position: relative;
-  left: 27px;
-}
-.content::after {
-  content: '';
-  width: 5px;
-  border-radius: 4px;
-  position: absolute;
-  top: 2px;
-  bottom: 4px;
-  left: -27px;
-  background-color: #FFD171;
-
-}
-.content span {
-  color: #8f8f8f;
-}
-a {
-  color: #4183D0;
-}
-
 @media (hover: hover) {
   a:hover {
     color: #12539E;
   }
-}
-
-
-/* Misc 
--------------------- */
-
-:focus{
-  outline: 0;
-  border-radius: 6px;
-  box-shadow: 
-    0 0 0 6px rgba(45,158,224,0.3),
-    0 0 0 2px #00C4FB;
-  transition: box-shadow 0.08s linear;
-}
-
-
-/* Socials 
------------------------------*/
-
-
-.socials li {
-  display: inline-block;
-  margin-right: 16px;
+  :focus{
+    outline: 0;
+    padding: 0 4px;
+    position: relative;
+    left: -4px;
+    margin-right: -8px;
+    border-radius: 6px;
+    box-shadow: 
+      0 0 0 6px rgba(45,158,224,0.3),
+      0 0 0 2px #00C4FB;
+    transition: box-shadow 0.08s linear;
+  }
 }
