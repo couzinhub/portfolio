@@ -72,32 +72,69 @@
 		display: inline-block;
 		margin-right: 20px;
 		}
-		#shadow {
-		display: block;
-		width: 600px;
-		height: 200px;
-		margin: 0 auto;
-		position: relative;
-		overflow: hidden;
-		}
-		#shadow::after {
-		content: "";
-		display: block;
-		width: 400px;
-		height: 180px;
-		background-color: #000;
-		position: absolute;
-		top: -190px;
-		left: 100px;
-		z-index: 0;
-		filter: blur(30px);
-		opacity: 20%;
-		}
 		@media (hover: hover) {
 			a:hover {
 				color: #12539E;
 			}
 		}
+
+		/* 3D tilt vars */
+		:root {
+			--rx: 0deg; /* rotateX set by JS */
+			--ry: 0deg; /* rotateY set by JS */
+		}
+
+		/* Apply the 3D tilt to the card */
+		#page {
+			transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+			transform-style: preserve-3d;
+			will-change: transform;
+			transition: transform 120ms ease-out; /* smooth reset on mouse leave */
+		}
+
+		/* Respect reduced motion */
+		@media (prefers-reduced-motion: reduce) {
+			#page { transform: none !important; transition: none !important; }
+		}
+
+		/* Dynamic shadow vars */
+		:root {
+			--shadow-x: 0px;
+			--shadow-y: 8px;
+			--shadow-blur: 8px;
+			--shadow-opacity: 0.05;
+		}
+
+		#page {
+			box-shadow: var(--shadow-x) var(--shadow-y) var(--shadow-blur)
+						rgba(0, 0, 0, var(--shadow-opacity));
+			transition: box-shadow 120ms ease-out, transform 120ms ease-out;
+		}
+		/* Tidy fade-in on load (respects reduced motion) */
+		@media (prefers-reduced-motion: no-preference) {
+			#page {
+				opacity: 0;
+				transform: translateY(8px) perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+				animation: hf-fade-in 380ms ease-out 40ms forwards;
+				will-change: transform, opacity;
+			}
+			@keyframes hf-fade-in {
+				to {
+				opacity: 1;
+				transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+				}
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			#page {
+				opacity: 1 !important;
+				transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) !important;
+				animation: none !important;
+			}
+		}
+
+
 	</style>
 </head>
 <body>
@@ -116,17 +153,55 @@
 					</svg>						
 				</a>
 			</li>
-			<!-- RIP Twitter
-			<li>
-				<a href="https://mobile.twitter.com/MySweetHubert" title="Hubert's Twitter Profile" target="blank">
-					<svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M19.3822 0.5C16.2089 0.5 13.6422 3.09133 13.6422 6.31133C13.6422 6.74067 13.7044 7.18533 13.7822 7.63C9.1 7.4 4.82222 5.13067 1.96 1.558C1.44667 2.46267 1.16667 3.42867 1.16667 4.48667C1.16667 6.48 2.16222 8.25867 3.73333 9.31667C2.8 9.286 1.92889 9.04067 1.13556 8.58067V8.65733C1.13556 11.4633 3.09556 13.794 5.74 14.3613C5.24222 14.484 4.74444 14.5453 4.23111 14.5453C3.88889 14.5453 3.53111 14.5147 3.14222 14.4687C3.87333 16.784 6.02 18.44 8.50889 18.486C6.42444 20.142 4.04444 20.97 1.38444 20.97C0.871111 20.97 0.404444 20.9547 0 20.8933C2.66 22.6413 5.6 23.5 8.80444 23.5C10.8578 23.5 12.7556 23.178 14.5444 22.5187C18.1222 21.2153 20.58 18.9767 22.4156 16.1093C24.2511 13.2573 25.1378 10.0987 25.1378 6.986C25.1378 6.64867 25.1378 6.388 25.1222 6.23467C26.2422 5.40667 27.2067 4.39467 28 3.22933C26.8956 3.72 25.7911 4.01133 24.7022 4.134C25.9467 3.36733 26.7711 2.30933 27.2222 0.929333C26.0867 1.61933 24.8733 2.07933 23.5822 2.34C22.4467 1.11333 21.0311 0.5 19.3822 0.5Z" fill="#6CB0FF"/>
-					</svg>						
-				</a>
-			</li>
-			-->
 		</ul>
 	</div> <!-- /page -->
-	<div id="shadow"></div>
+<script>
+(function(){
+  const root = document.documentElement;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+
+  function setTilt(e) {
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+
+    const dx = (e.clientX - cx) / cx; // -1..1
+    const dy = (e.clientY - cy) / cy; // -1..1
+
+    const MAX = 5; // degrees tilt
+    const ry = (dx * MAX).toFixed(2);
+    const rx = (-dy * MAX).toFixed(2);
+
+    root.style.setProperty('--rx', rx + 'deg');
+    root.style.setProperty('--ry', ry + 'deg');
+
+	// Shadow offset relative to tilt (make it subtler)
+	const offsetX = (dx * 6).toFixed(1) + 'px';
+	const offsetY = (dy * 6 + 8).toFixed(1) + 'px';
+
+	// Blur grows slightly with tilt (keep it low)
+	const blur = (8 + Math.abs(dx*2) + Math.abs(dy*2)).toFixed(1) + 'px';  // base 8
+
+	// Opacity grows slightly with tilt (still faint)
+	const op = 0.05 + (Math.abs(dx) + Math.abs(dy)) * 0.02;
+
+  }
+
+  function resetTilt() {
+    root.style.setProperty('--rx', '0deg');
+    root.style.setProperty('--ry', '0deg');
+    root.style.setProperty('--shadow-x', '0px');
+    root.style.setProperty('--shadow-y', '8px');
+    root.style.setProperty('--shadow-blur', '8px');
+    root.style.setProperty('--shadow-opacity', '0.05');
+  }
+
+  window.addEventListener('pointermove', setTilt, { passive: true });
+  window.addEventListener('mouseout', resetTilt);
+})();
+</script>
+
+
+
 </body>
 </html>
