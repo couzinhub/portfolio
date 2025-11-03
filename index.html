@@ -37,27 +37,47 @@
 		line-height: 184%;
 		color: #334152;
 		min-width: 320px;
-		padding: 0 20px;
+		height: 100vh;
+		padding: 20px;
+		user-select: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
 		}
 		#page {
-		max-width: 440px;
-		margin: 100px auto 0;
-		padding: 50px 74px;
-		background-color: #fff;
-		border-radius: 16px;
+		max-width: 500px;
+		width: 100%;
 		position: relative;
+		perspective: 1000px;
+		transform: translateY(-5vh);
+		}
+
+		.flip-container {
+		padding: 40px 60px 30px;
+		background-color: #fff;
+		border-radius: 4px;
+		position: relative;
+		transform-style: preserve-3d;
+		box-shadow:
+			0px 1px 1px rgba(0, 0, 0, 0.04),
+			0px 2px 2px rgba(0, 0, 0, 0.05),
+			0px 4px 4px rgba(0, 0, 0, 0.06);
 		}
 		h1 {
 		font-weight: 900;
-		font-size: 38px;
+		font-size: 28px;
 		line-height: 140%;
-		margin: 0 0 20px;
+		margin: 0 0 12px;
 		}
 		.content {
 		list-style: none;
-		margin: 0 0 30px;
+		margin: 0 0 20px;
 		position: relative;
-		left: 27px;
+		padding-left: 27px;
 		}
 		.content::after {
 		content: '';
@@ -66,7 +86,7 @@
 		position: absolute;
 		top: 2px;
 		bottom: 4px;
-		left: -27px;
+		left: 0;
 		background-color: #FFD171;
 		}
 		.content span {
@@ -90,22 +110,47 @@
 			}
 		}
 
-		/* Simple shadow for the card */
-		#page {
-			box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
+		/* Front and back faces */
+		.card-front, .card-back {
+			backface-visibility: hidden;
+			-webkit-backface-visibility: hidden;
+		}
+
+		.card-front {
+			position: relative;
+			transform: rotateY(0deg);
+		}
+
+		.card-back {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			transform: rotateY(180deg);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.card-back p {
+			font-size: 48px;
+			line-height: 1;
 		}
 
 		/* Fade-in on load (respects reduced motion) */
 		@media (prefers-reduced-motion: no-preference) {
 			#page {
 				opacity: 0;
-				transform: translateY(8px);
 				animation: hf-fade-in 380ms ease-out 40ms forwards;
 			}
 			@keyframes hf-fade-in {
+				from {
+				opacity: 0;
+				transform: translateY(calc(-5vh + 8px));
+				}
 				to {
 				opacity: 1;
-				transform: translateY(0);
+				transform: translateY(-5vh);
 				}
 			}
 		}
@@ -114,56 +159,171 @@
 			#page {
 				opacity: 1 !important;
 				animation: none !important;
+				transition: none !important;
 			}
 		}
 
 		/* Mobile responsive styles */
 		@media (max-width: 640px) {
 			body {
-				padding: 0 16px;
-				font-size: 16px;
+				padding: 16px;
+				font-size: 14px;
+				letter-spacing: 0;
 			}
-			#page {
-				margin: 40px auto 40px;
-				padding: 40px 30px;
-				max-width: 100%;
+			.flip-container {
+				padding: 30px 40px;
 			}
 			h1 {
-				font-size: 32px;
+				font-size: 24px;
+				margin-bottom: 12px;
 			}
 			.content {
-				left: 20px;
-			}
-			.content::after {
-				left: -20px;
+				margin-bottom: 20px;
 			}
 		}
 
 		@media (max-width: 400px) {
-			#page {
+			.flip-container {
 				padding: 30px 24px;
 			}
+		}
+
+		/* Cursor tooltip */
+		#cursor-tooltip {
+			position: fixed;
+			background-color: rgba(0, 0, 0, 0.85);
+			color: #fff;
+			padding: 2px 8px 0;
+			border-radius: 4px;
+			font-size: 12px;
+			pointer-events: none;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+			z-index: 1000;
+			white-space: nowrap;
+		}
+		#cursor-tooltip.visible {
+			opacity: 1;
 		}
 
 	</style>
 </head>
 <body>
 	<div id="page">
-		<h1>Hubert Florin</h1>
-		<ul class="content">
-			<li><strong>Co-Founder & Designer</strong> at <a href="https://pop.com" target="_blank" rel="noopener noreferrer" title="Pop.com">Pop.com</a></li>
-			<li>Previously <strong>Staff Designer</strong> at <a href="https://slack.com" target="_blank" rel="noopener noreferrer" title="Slack.com">Slack</a> <span>(2014-2020)</span></li>
-			<li>Based in <strong>North Vancouver</strong> <span>(Canada)</span></li>
-		</ul>
-		<ul class="socials">
-			<li>
-				<a href="https://www.linkedin.com/in/hubert-florin/" title="Hubert's LinkedIn Profile" target="_blank" rel="noopener noreferrer" aria-label="Visit Hubert's LinkedIn profile (opens in new tab)">
-					<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LinkedIn icon">
-						<path d="M23.15 0H1.85C0.833334 0 0 0.768 0 1.728V22.272C0 23.216 0.833334 24 1.85 24H23.15C24.1667 24 25 23.216 25 22.272V1.728C25 0.768 24.1667 0 23.15 0ZM5.56667 7.44C4.36667 7.44 3.41667 6.512 3.41667 5.36C3.41667 4.224 4.36667 3.296 5.56667 3.296C6.75 3.296 7.71667 4.224 7.71667 5.36C7.71667 6.512 6.75 7.44 5.56667 7.44ZM21.3 14.176V20.448H17.6V14.88C17.6 13.552 17.5667 11.84 15.6667 11.84C13.7333 11.84 13.45 13.296 13.45 14.784V20.448H9.75V8.992H13.3V10.56H13.35C13.85 9.664 15.05 8.72 16.85 8.72C20.6167 8.72 21.3 11.088 21.3 14.176ZM3.7 20.448V8.992H7.41667V20.448H3.7Z" fill="#3E5A9F"/>
-					</svg>
-				</a>
-			</li>
-		</ul>
+		<div class="flip-container">
+			<div class="card-front">
+				<h1>Hubert Florin</h1>
+				<ul class="content">
+					<li><strong>Co-Founder & Designer</strong> at <a href="https://pop.com" target="_blank" rel="noopener noreferrer" title="Pop.com">Pop.com</a></li>
+					<li>Previously <strong>Staff Designer</strong> at <a href="https://slack.com" target="_blank" rel="noopener noreferrer" title="Slack.com">Slack</a></li>
+					<li>Based in <strong>North Vancouver</strong> <span>(Canada)</span></li>
+				</ul>
+				<ul class="socials">
+					<li>
+						<a href="https://www.linkedin.com/in/hubert-florin/" title="Hubert's LinkedIn Profile" target="_blank" rel="noopener noreferrer" aria-label="Visit Hubert's LinkedIn profile (opens in new tab)">
+							<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LinkedIn icon">
+								<path d="M23.15 0H1.85C0.833334 0 0 0.768 0 1.728V22.272C0 23.216 0.833334 24 1.85 24H23.15C24.1667 24 25 23.216 25 22.272V1.728C25 0.768 24.1667 0 23.15 0ZM5.56667 7.44C4.36667 7.44 3.41667 6.512 3.41667 5.36C3.41667 4.224 4.36667 3.296 5.56667 3.296C6.75 3.296 7.71667 4.224 7.71667 5.36C7.71667 6.512 6.75 7.44 5.56667 7.44ZM21.3 14.176V20.448H17.6V14.88C17.6 13.552 17.5667 11.84 15.6667 11.84C13.7333 11.84 13.45 13.296 13.45 14.784V20.448H9.75V8.992H13.3V10.56H13.35C13.85 9.664 15.05 8.72 16.85 8.72C20.6167 8.72 21.3 11.088 21.3 14.176ZM3.7 20.448V8.992H7.41667V20.448H3.7Z" fill="#3E5A9F"/>
+							</svg>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="card-back">
+				<p id="lk9x"></p>
+			</div>
+		</div>
 	</div> <!-- /page -->
+	<div id="cursor-tooltip">Survival Rule #2</div>
+<script>
+(function(){
+  // Insert emoji using Unicode code point
+  const lk9x = document.getElementById('lk9x');
+  lk9x.textContent = String.fromCodePoint(0x1F407);
+
+  const flipContainer = document.querySelector('.flip-container');
+  let isFlipped = false;
+  let lastTap = 0;
+  let hasFlipped = false;
+
+  function performFlip() {
+    isFlipped = !isFlipped;
+    hasFlipped = true;
+    const rotationDegrees = isFlipped ? 180 : 0;
+
+    flipContainer.style.transition = 'transform 0.6s ease-in-out';
+    flipContainer.style.transform = `rotateY(${rotationDegrees}deg) translateZ(0px)`;
+
+    // Reset translateZ after flip completes
+    setTimeout(function() {
+      flipContainer.style.transition = 'transform 0.2s ease-out';
+      flipContainer.style.transform = `rotateY(${rotationDegrees}deg) translateZ(0px)`;
+    }, 600);
+  }
+
+  // Handle double-click for desktop
+  flipContainer.addEventListener('dblclick', function(e) {
+    // Don't flip if clicking on a link
+    if (e.target.tagName === 'A' || e.target.closest('a')) {
+      return;
+    }
+    performFlip();
+  });
+
+  // Handle double-tap for mobile
+  flipContainer.addEventListener('touchend', function(e) {
+    // Don't flip if tapping on a link
+    if (e.target.tagName === 'A' || e.target.closest('a')) {
+      return;
+    }
+
+    const currentTime = new Date().getTime();
+    const tapLength = currentTime - lastTap;
+
+    if (tapLength < 300 && tapLength > 0) {
+      e.preventDefault();
+      performFlip();
+    }
+
+    lastTap = currentTime;
+  });
+
+  // Cursor tooltip functionality
+  const tooltip = document.getElementById('cursor-tooltip');
+  let tooltipReady = false;
+  let isHoveringCard = false;
+
+  // Enable tooltip after 5 seconds
+  setTimeout(function() {
+    tooltipReady = true;
+  }, 10000);
+
+  // Track when hovering over the card
+  flipContainer.addEventListener('mouseenter', function() {
+    isHoveringCard = true;
+  });
+
+  flipContainer.addEventListener('mouseleave', function() {
+    isHoveringCard = false;
+    tooltip.classList.remove('visible');
+  });
+
+  // Follow cursor and show tooltip only when hovering the card
+  document.addEventListener('mousemove', function(e) {
+    if (tooltipReady && isHoveringCard) {
+      tooltip.classList.add('visible');
+      tooltip.style.left = (e.clientX + 15) + 'px';
+      tooltip.style.top = (e.clientY + 15) + 'px';
+    } else {
+      tooltip.classList.remove('visible');
+    }
+  });
+
+  // Hide tooltip on click
+  document.addEventListener('click', function() {
+    tooltip.classList.remove('visible');
+    tooltipReady = false;
+  });
+})();
+</script>
 </body>
 </html>
